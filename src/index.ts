@@ -18,7 +18,7 @@ const cors = require('cors');
 
 const corsOptions = {
   // Allow requests from all origins (* for all origins)
-  origin: '*',
+  origin: 'https://sql-mentor-psi.vercel.app/',
 
   // Optional: Specify allowed methods (defaults to GET, HEAD, PUT, PATCH, POST, DELETE)
   methods: 'GET,POST,PUT,DELETE',
