@@ -14,8 +14,27 @@ config();
 const app = express();
 
 // Middlewares
+const cors = require('cors');
 
-app.use(cors({origin:"https://sql-mentor-psi.vercel.app/", credentials: true}));
+const corsOptions = {
+  // Allow requests from all origins (* for all origins)
+  origin: '*',
+
+  // Optional: Specify allowed methods (defaults to GET, HEAD, PUT, PATCH, POST, DELETE)
+  methods: 'GET,POST,PUT,DELETE',
+
+  // Optional: Allow custom headers (defaults to none)
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+
+  // Optional: Allow preflight requests (defaults to true for all methods not in allowedMethods)
+  preflightContinue: false,
+
+  // Optional: Expose headers in preflight requests (defaults to "*" for all headers)
+  exposedHeaders: ['Authorization'],
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(morgan("dev")); // for development
