@@ -28,4 +28,8 @@ userRoutes.get("/auth-status", verifyToken, verifyUserStatus); // check if user 
 
 userRoutes.get("/logout", verifyToken, logoutUser)
 
+userRoutes.get("/wakeup", (req, res, next) => {
+	res.send("Hello I am here!");
+})
+
 export default userRoutes;
