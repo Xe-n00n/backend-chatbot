@@ -15,7 +15,7 @@ const app = express();
 
 // Middlewares
 
-app.use(cors({origin:"*"}))
+app.use(cors({origin:"https://sql-mentor-psi.vercel.app/"}))
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(morgan("dev")); // for development
